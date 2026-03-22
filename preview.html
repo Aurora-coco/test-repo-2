@@ -54,15 +54,15 @@
       const isLow = remaining <= 20;
 
       return (
-        <div className={`rounded-2xl border p-6 ${isLow ? 'border-red-200 bg-gradient-to-br from-red-50 to-white' : 'border-gray-200 bg-gradient-to-br from-blue-50 to-white'}`}>
+        <div className={`relative rounded-2xl border p-6 ${isLow ? 'border-red-200 bg-gradient-to-br from-red-50 to-white' : 'border-gray-200 bg-gradient-to-br from-blue-50 to-white'}`}>
           <div className="flex items-start justify-between">
             <div>
               <p className="text-sm font-medium text-gray-500">本月剩余额度</p>
               <div className="mt-1 flex items-baseline gap-2">
-                <span className={`text-5xl font-bold tracking-tight ${isLow ? 'text-red-600' : 'text-gray-900'}`}>{remaining.toLocaleString()}</span>
-                <span className="text-lg text-gray-400">/ 10,000 次</span>
+                <span className={`text-5xl font-bold tracking-tight ${isLow ? 'text-red-600' : 'text-gray-900'}`}>{(remaining * 1000).toLocaleString()}</span>
+                <span className="text-lg text-gray-400">/ 100,000 Tokens</span>
               </div>
-              <p className="mt-1 text-sm text-gray-500">已使用 <span className="font-medium text-gray-700">{used}%</span> · 预计剩余 <span className="font-medium text-gray-700">6 天</span></p>
+              <p className="mt-1 text-sm text-gray-500">已使用 <span className="font-medium text-gray-700">{(used * 1000).toLocaleString()} Tokens ({used}%)</span> · 预计剩余 <span className="font-medium text-gray-700">6 天</span></p>
             </div>
             {isLow && (
               <div className="flex items-center gap-1.5 rounded-full bg-red-100 px-3 py-1 text-sm font-medium text-red-700">
@@ -180,7 +180,7 @@
               </div>
             </div>
           </header>
-          <main className="mx-auto max-w-7xl px-6 py-8">
+          <main className="mx-auto max-w-7xl px-6 pt-10 pb-8">
             <div className="mb-6">
               <h1 className="text-2xl font-bold text-gray-900">仪表盘</h1>
               <p className="mt-1 text-sm text-gray-500">模型使用情况概览与管理</p>

@@ -53,12 +53,12 @@ function QuotaCard() {
           <p className="text-sm font-medium text-gray-500">本月剩余额度</p>
           <div className="mt-1 flex items-baseline gap-2">
             <span className={`text-5xl font-bold tracking-tight ${isLow ? "text-red-600" : "text-gray-900"}`}>
-              {remaining.toLocaleString()}
+              {(remaining * 1000).toLocaleString()}
             </span>
-            <span className="text-lg text-gray-400">/ 10,000 次</span>
+            <span className="text-lg text-gray-400">/ 100,000 Tokens</span>
           </div>
           <p className="mt-1 text-sm text-gray-500">
-            已使用 <span className="font-medium text-gray-700">{used}%</span> · 预计剩余 <span className="font-medium text-gray-700">6 天</span>
+            已使用 <span className="font-medium text-gray-700">{(used * 1000).toLocaleString()} Tokens ({used}%)</span> · 预计剩余 <span className="font-medium text-gray-700">6 天</span>
           </p>
         </div>
         {isLow && (
